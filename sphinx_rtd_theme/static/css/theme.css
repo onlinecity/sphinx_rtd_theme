@@ -4721,7 +4721,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 .header {
   position: fixed;
   top: 0;
-  left: 300px;
+  padding-left: 300px;
   display: block;
   height: 60px;
   width: 100%;
@@ -4730,14 +4730,47 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   background-color: #fff;
   border-bottom: 1px solid #ccc;
 }
-.header > a {
-  color: #3b4751;
+.header .profile-wrap {
+  float: right;
+  line-height: 60px;
+  display: block;
+}
+.header .profile-wrap > .username-wrap {
+  display: inline-block;
+  float: left;
+  margin-right: 10px;
+  color: #626262;
+  font-size: 12px;
+  font-weight: bold;
+}
+.header .profile-wrap > .thumbnail-wrap {
+  display: inline-block;
+  float: right;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border: 2px solid #e5e9ec;
+  line-height: 0px;
+  margin-top: 12px;
 }
 .header > .header-inner {
-  height: 60px;
+  height: 55px;
   width: 100%;
   vertical-align: middle;
   display: table-cell;
+}
+.header .menu-wrap > ul > li {
+  display: inline-block;
+}
+.header .menu-wrap > ul > li > a {
+  line-height: 60px;
+  display: block;
+  margin-right: 10px;
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .wy-breadcrumbs {
@@ -5214,13 +5247,13 @@ span[id*='MathJax-Span'] {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat"), url("../fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  src: local("Montserrat"), url("../fonts/Montserrat-Regular.ttf") format("truetype");
 }
 @font-face {
   font-family: "Montserrat";
   font-style: normal;
   font-weight: 700;
-  src: local("Montserrat Bold"), url("../fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  src: local("Montserrat Bold"), local("Montserrat-Bold"), url("../fonts/Montserrat-Bold.ttf") format("truetype");
 }
 
 /*# sourceMappingURL=theme.css.map */

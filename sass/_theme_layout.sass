@@ -437,7 +437,7 @@ footer
 .header
   position: fixed
   top: 0
-  left: $nav-desktop-width
+  padding-left: $nav-desktop-width
   display: block
   height: 60px
   width: 100%
@@ -446,14 +446,54 @@ footer
   background-color: #fff
   border-bottom: 1px solid $gray-lighter
 
-  > a
-    color: #3b4751
+  .profile-wrap
+    float: right
+    line-height: 60px
+    display: block
+
+    > .username-wrap
+      display: inline-block
+      float: left
+      margin-right: 10px
+
+      > a
+      color: #626262
+      font-size: 12px
+      font-weight: bold
+
+    > .thumbnail-wrap
+      display: inline-block
+      float: right
+      width: 32px
+      height: 32px
+      overflow: hidden
+      border-radius: 50%
+      -webkit-border-radius: 50%
+      -moz-border-radius: 50%
+      border: 2px solid #e5e9ec
+      line-height: 0px
+      margin-top: 12px
+
 
   > .header-inner
-    height: 60px
+    height: 55px
     width: 100%
     vertical-align: middle
     display: table-cell
+
+  .menu-wrap
+    > ul
+      > li
+        display: inline-block
+        > a
+          line-height: 60px
+          display: block
+          margin-right: 10px
+          font-size: 12px
+          font-weight: bold
+
+
+
 
 .wy-breadcrumbs
   font-family: Montserrat
