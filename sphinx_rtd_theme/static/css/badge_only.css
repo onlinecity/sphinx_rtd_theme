@@ -18,8 +18,8 @@
   font-family: FontAwesome;
   font-weight: normal;
   font-style: normal;
-  src: url("../font/fontawesome_webfont.eot");
-  src: url("../font/fontawesome_webfont.eot?#iefix") format("embedded-opentype"), url("../font/fontawesome_webfont.woff") format("woff"), url("../font/fontawesome_webfont.ttf") format("truetype"), url("../font/fontawesome_webfont.svg#FontAwesome") format("svg");
+  src: url("_static/fonts/fontawesome_webfont.eot");
+  src: url("_static/fonts/fontawesome_webfont.eot?#iefix") format("embedded-opentype"), url("_static/fonts/fontawesome_webfont.woff") format("woff"), url("_static/fonts/fontawesome_webfont.ttf") format("truetype"), url("_static/fonts/fontawesome_webfont.svg#FontAwesome") format("svg");
 }
 .fa:before {
   display: inline-block;

@@ -4779,9 +4779,9 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   display: inline-block;
 }
 .header .menu-wrap > ul > li > a {
-  line-height: 60px;
+  line-height: 58px;
   display: block;
-  margin-right: 10px;
+  margin-right: 0px;
   padding: 2px 10px 0 10px;
   font-size: 13px;
   font-weight: 400;
