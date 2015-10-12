@@ -4530,6 +4530,9 @@ a:visited {
   border-bottom: 1px solid #262a32;
   padding-left: 20px;
 }
+.wy-side-logo > img {
+  height: 60px;
+}
 .wy-side-logo > div.version {
   margin-top: -0.4045em;
   margin-bottom: 0.809em;
@@ -4550,8 +4553,9 @@ a:visited {
 
 .wy-nav-top {
   display: none;
-  background: #2980B9;
-  color: #fff;
+  background: #fff;
+  border-bottom: 1px solid #ccc;
+  color: #000000;
   padding: 0.4045em 0.809em;
   position: relative;
   line-height: 50px;
@@ -4567,21 +4571,22 @@ a:visited {
   clear: both;
 }
 .wy-nav-top a {
-  color: #fff;
+  color: #000000;
   font-weight: bold;
 }
 .wy-nav-top img {
   margin-right: 12px;
-  height: 45px;
-  width: 45px;
+  height: 32px;
+  width: 32px;
   background-color: #2980B9;
   padding: 5px;
   border-radius: 100%;
 }
 .wy-nav-top i {
-  font-size: 30px;
+  font-size: 24px;
   float: left;
   cursor: pointer;
+  margin: 12px 0 0 0;
 }
 
 .wy-nav-content-wrap {
@@ -4656,70 +4661,14 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   font-size: 90%;
 }
 
-@media screen and (max-width: 768px) {
-  .wy-body-for-nav {
-    background: #fafafa;
-  }
-
-  .wy-nav-top {
-    display: block;
-  }
-
-  .wy-nav-side {
-    left: -300px;
-  }
-  .wy-nav-side.shift {
-    width: 85%;
-    left: 0;
-  }
-
-  .wy-side-scroll {
-    width: auto;
-  }
-
-  .wy-side-nav-search {
-    width: auto;
-  }
-
-  .wy-menu.wy-menu-vertical {
-    width: auto;
-  }
-
-  .wy-nav-content-wrap {
-    margin-left: 0;
-  }
-  .wy-nav-content-wrap .wy-nav-content {
-    padding: 1.618em;
-  }
-  .wy-nav-content-wrap.shift {
-    position: fixed;
-    min-width: 100%;
-    left: 85%;
-    top: 0;
-    height: 100%;
-    overflow: hidden;
-  }
+.sidewide-nav {
+  display: none;
 }
-@media screen and (min-width: 1400px) {
-  .wy-nav-content-wrap {
-    background: #fafafa;
-  }
 
-  .wy-nav-content {
-    margin: 0;
-    margin-top: 60px;
-    background: #fafafa;
-  }
+.footer-logo {
+  width: 100px;
 }
-@media print {
-  .rst-versions, footer, .wy-nav-side {
-    display: none;
-  }
 
-  .wy-nav-content-wrap {
-    margin-left: 0;
-  }
-}
 .header {
   position: fixed;
   top: 0;
@@ -4731,6 +4680,9 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   z-index: 50;
   background-color: #fff;
   border-bottom: 1px solid #ccc;
+}
+.header .header-inner {
+  float: right;
 }
 .header .profile-wrap {
   float: right;
@@ -4828,6 +4780,104 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   background: #2593d2;
 }
 
+@media screen and (max-width: 768px) {
+  body {
+    padding: 0px;
+  }
+
+  .header {
+    display: none !important;
+  }
+
+  .wy-body-for-nav {
+    background: #fafafa;
+  }
+
+  .wy-nav-top {
+    display: block;
+  }
+
+  .wy-nav-side {
+    left: -300px;
+  }
+  .wy-nav-side.shift {
+    width: 85%;
+    left: 0;
+  }
+
+  .wy-side-logo {
+    overflow: hidden;
+  }
+  .wy-side-logo .version {
+    display: none;
+  }
+  .wy-side-logo > img {
+    float: left;
+    height: 60px;
+    width: 157px;
+    clear: none;
+  }
+
+  .wy-side-scroll {
+    width: auto;
+  }
+
+  .wy-side-nav-search {
+    width: auto;
+  }
+
+  .wy-menu.wy-menu-vertical {
+    width: auto;
+  }
+
+  .wy-nav-content-wrap {
+    margin-left: 0;
+  }
+  .wy-nav-content-wrap .wy-nav-content {
+    padding: 1.618em;
+    margin-top: 0px;
+  }
+  .wy-nav-content-wrap.shift {
+    position: fixed;
+    min-width: 100%;
+    left: 85%;
+    top: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .sidewide-nav {
+    display: block;
+  }
+
+  .footer-logo {
+    width: 100px;
+  }
+
+  .wy-breadcrumbs-aside {
+    display: none;
+  }
+}
+@media screen and (min-width: 1400px) {
+  .wy-nav-content-wrap {
+    background: #fafafa;
+  }
+
+  .wy-nav-content {
+    margin: 0;
+    margin-top: 60px;
+    background: #fafafa;
+  }
+}
+@media print {
+  .rst-versions, footer, .wy-nav-side {
+    display: none;
+  }
+
+  .wy-nav-content-wrap {
+    margin-left: 0;
+  }
+}
 .rst-versions {
   position: fixed;
   bottom: 0;

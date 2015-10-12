@@ -93,7 +93,7 @@
     {# SIDE NAV, TOGGLES ON MOBILE #}
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
         <div class="wy-side-logo">
-            <img src="{{ pathto('_static/img/logo_white_landscape.svg', 1) }}" width="160" class="logo">
+            <img src="{{ pathto('_static/img/logo_white_landscape.svg', 1) }}" class="logo">
             {% if theme_display_version %}
             {%- set nav_version = version %}
             {% if READTHEDOCS and current_version %}
@@ -125,7 +125,35 @@
                 <div class="local-toc">{{ toc }}</div>
                 {% endif %}
                 {% endblock %}
+
+                <div class="sidewide-nav">
+                    <p class="caption"><span class="caption-text">Your Profile</span></p>
+                    <ul class="menu">
+                        <li>
+                            <a class="" href="#">Alfred Petersson</a>
+                        </li>
+                        <li class="dashboard">
+                            <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+                        </li>
+                    </ul>
+                    <p class="caption"><span class="caption-text">Menu</span></p>
+                    <ul class="menu">
+                        <li>
+                            <a href="#">Pricing</a>
+                        </li>
+                        <li class="">
+                            <a href="#">Support</a>
+                        </li>
+                        <li class="">
+                            <a href="https://gatewayapi.com/docs/">Docs</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
         </div>
     </nav>
 

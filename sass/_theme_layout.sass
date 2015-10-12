@@ -294,6 +294,8 @@ a:visited
   background-color: #1d242e
   border-bottom: 1px solid #262a32
   padding-left: 20px
+  > img
+    height: 60px
   > div.version
     margin-top: -1 * ($gutter / 4)
     margin-bottom: $gutter / 2
@@ -312,8 +314,9 @@ a:visited
 
 .wy-nav-top
   display: none
-  background: $link-color
-  color: $white
+  background: #fff
+  border-bottom: 1px solid $gray-lighter
+  color: #000000
   padding: $gutter / 4 $gutter / 2
   position: relative
   line-height: 50px
@@ -321,20 +324,21 @@ a:visited
   font-size: 100%
   +clearfix
   a
-    color: $white
+    color: #000000
     font-weight: bold
     +font-smooth
   img
     margin-right: $base-line-height / 2
-    height: 45px
-    width: 45px
+    height: 32px
+    width: 32px
     background-color: $menu-logo-color
     padding: 5px
     border-radius: 100%
   i
-    font-size: 30px
+    font-size: 24px
     float: left
     cursor: pointer
+    margin: 12px 0 0 0
 
 .wy-nav-content-wrap
   margin-left: $nav-desktop-width
@@ -389,52 +393,11 @@ footer
     color: $text-medium
     font-size: 90%
 
+.sidewide-nav
+  display: none
 
-+media($tablet)
-  .wy-body-for-nav
-    background: $section-background-color
-  .wy-nav-top
-    display: block
-  .wy-nav-side
-    @if $nav-desktop-position == left
-      left: -$nav-desktop-width
-    @else
-      right: -$nav-desktop-width
-    &.shift
-      width: 85%
-      left: 0
-  .wy-side-scroll
-    width: auto
-  .wy-side-nav-search
-    width: auto
-  .wy-menu.wy-menu-vertical
-    width: auto
-  .wy-nav-content-wrap
-    margin-left: 0
-    .wy-nav-content
-      padding: $gutter
-    &.shift
-      position: fixed
-      min-width: 100%
-      left: 85%
-      top: 0
-      height: 100%
-      overflow: hidden
-
-+media($desktop-wider)
-  .wy-nav-content-wrap
-    background: $section-background-color
-  .wy-nav-content
-    margin: 0
-    margin-top: 60px
-    background: $section-background-color
-
-@media print
-  .rst-versions, footer, .wy-nav-side
-    display: none
-  .wy-nav-content-wrap
-    margin-left: 0
-
+.footer-logo
+  width: 100px
 
 .header
   position: fixed
@@ -447,6 +410,9 @@ footer
   z-index: 50
   background-color: #fff
   border-bottom: 1px solid $gray-lighter
+
+  .header-inner
+    float: right
 
   .profile-wrap
     float: right
@@ -493,9 +459,6 @@ footer
     > ul
       > li
         display: inline-block
-        &.dashboard
-          > a
-
 
         > a
           line-height: 58px
@@ -511,8 +474,6 @@ footer
           letter-spacing: 0.01em
           &:hover
             opacity: 0.75
-
-
 
 
 
@@ -542,3 +503,68 @@ footer
     padding: 0 17px
   &:active
     background: darken($class-color, 10%)
+
++media($tablet)
+  body
+    padding: 0px
+  .header
+    display: none !important
+  .wy-body-for-nav
+    background: $section-background-color
+  .wy-nav-top
+    display: block
+  .wy-nav-side
+    @if $nav-desktop-position == left
+      left: -$nav-desktop-width
+    @else
+      right: -$nav-desktop-width
+    &.shift
+      width: 85%
+      left: 0
+  .wy-side-logo
+    overflow: hidden
+    .version
+      display: none
+    >img
+      float: left
+      height: 60px
+      width: 157px
+      clear: none
+  .wy-side-scroll
+    width: auto
+  .wy-side-nav-search
+    width: auto
+  .wy-menu.wy-menu-vertical
+    width: auto
+  .wy-nav-content-wrap
+    margin-left: 0
+    .wy-nav-content
+      padding: $gutter
+      margin-top: 0px
+    &.shift
+      position: fixed
+      min-width: 100%
+      left: 85%
+      top: 0
+      height: 100%
+      overflow: hidden
+  .sidewide-nav
+    display: block
+  .footer-logo
+    width: 100px
+  .wy-breadcrumbs-aside
+    display: none
+
++media($desktop-wider)
+  .wy-nav-content-wrap
+    background: $section-background-color
+  .wy-nav-content
+    margin: 0
+    margin-top: 60px
+    background: $section-background-color
+
+@media print
+  .rst-versions, footer, .wy-nav-side
+    display: none
+  .wy-nav-content-wrap
+    margin-left: 0
