@@ -208,7 +208,7 @@ ul.fas li .fa-large:before {
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .rst-versions {
     width: 85%;
     display: none;

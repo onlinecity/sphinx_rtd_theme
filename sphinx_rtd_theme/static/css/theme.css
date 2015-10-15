@@ -2663,7 +2663,7 @@ a .fa, a .wy-menu-vertical li span.toctree-expand, .wy-menu-vertical li a span.t
   height: 56px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .wy-tray-container {
     bottom: auto;
     top: 0;
@@ -3468,7 +3468,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled] {
     padding: 6px 0;
   }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .tablet-hide {
     display: none;
   }
@@ -4551,6 +4551,26 @@ a:visited {
   height: 100%;
 }
 
+.wy-side-scroll::-webkit-scrollbar {
+  width: 10px;
+}
+
+.wy-side-scroll::-webkit-scrollbar-track {
+  background-color: #1d242e;
+}
+
+.wy-side-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.wy-side-scroll::-webkit-scrollbar-button {
+  background-color: #7c2929;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: black;
+}
+
 .wy-nav-top {
   display: none;
   background: #fff;
@@ -4574,13 +4594,11 @@ a:visited {
   color: #000000;
   font-weight: bold;
 }
-.wy-nav-top img {
-  margin-right: 12px;
-  height: 32px;
-  width: 32px;
-  background-color: #2980B9;
-  padding: 5px;
-  border-radius: 100%;
+.wy-nav-top img.mobile-logo {
+  width: 157px;
+  height: 25px;
+  border-radius: none;
+  background-color: none;
 }
 .wy-nav-top i {
   font-size: 24px;
@@ -4725,6 +4743,8 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 .header .menu-wrap {
   margin-right: 15px;
   padding-right: 15px;
+}
+.header .menu-wrap.menu-base {
   border-right: 1px solid #e0e0e0;
 }
 .header .menu-wrap > ul > li {
@@ -4780,7 +4800,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   background: #2593d2;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   body {
     padding: 0px;
   }
@@ -4988,7 +5008,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   text-align: center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 980px) {
   .rst-versions {
     width: 85%;
     display: none;

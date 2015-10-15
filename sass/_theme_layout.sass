@@ -312,6 +312,21 @@ a:visited
   overflow-y: scroll
   height: 100%
 
+.wy-side-scroll::-webkit-scrollbar
+  width: 10px
+
+.wy-side-scroll::-webkit-scrollbar-track
+  background-color: #1d242e
+
+.wy-side-scroll::-webkit-scrollbar-thumb
+  background-color: rgba(255,255,255,0.3)
+
+.wy-side-scroll::-webkit-scrollbar-button
+  background-color: #7c2929
+
+::-webkit-scrollbar-corner
+  background-color: black
+
 .wy-nav-top
   display: none
   background: #fff
@@ -328,12 +343,13 @@ a:visited
     font-weight: bold
     +font-smooth
   img
-    margin-right: $base-line-height / 2
-    height: 32px
-    width: 32px
-    background-color: $menu-logo-color
-    padding: 5px
-    border-radius: 100%
+
+    &.mobile-logo
+      width: 157px
+      height: 25px
+      border-radius: none
+      background-color: none
+
   i
     font-size: 24px
     float: left
@@ -455,7 +471,8 @@ footer
   .menu-wrap
     margin-right: 15px
     padding-right: 15px
-    border-right: 1px solid #e0e0e0
+    &.menu-base
+      border-right: 1px solid #e0e0e0
     > ul
       > li
         display: inline-block
