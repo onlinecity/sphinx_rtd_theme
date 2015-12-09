@@ -129,11 +129,14 @@
                 <div class="sidewide-nav">
                     <p class="caption"><span class="caption-text">Your Profile</span></p>
                     <ul class="menu">
-                        <li>
-                            <a class="" href="#">Alfred Petersson</a>
+                        <li class="profile hidden">
+                            <a class="" href="https://gatewayapi.com/app/profile/"><i class="fa fa-cog"></i> Profile</a>
                         </li>
-                        <li class="dashboard">
-                            <a href="#"><i class="fa fa-tachometer"></i> Dashboard</a>
+                        <li class="login">
+                            <a class="" href="https://gatewayapi.com/#login">Login</a>
+                        </li>
+                        <li class="dashboard hidden">
+                            <a href="https://gatewayapi.com/app/"><i class="fa fa-tachometer"></i> Dashboard</a>
                         </li>
                     </ul>
                     <p class="caption"><span class="caption-text">Menu</span></p>
@@ -205,6 +208,8 @@
 {% if not READTHEDOCS %}
 <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
 {% endif %}
+
+<script type="text/javascript" src="{{ pathto('_static/js/app.js', 1) }}"></script>
 
 {# STICKY NAVIGATION #}
 {% if theme_sticky_navigation %}
