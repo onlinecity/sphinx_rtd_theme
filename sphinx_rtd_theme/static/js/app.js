@@ -6,6 +6,28 @@ $(document).ready(function () {
   var tokenTimer;
   var jwt, me;
 
+  function initialize() {
+    checkTokenAndUpdateProfile();
+    handleTopbarHidingOnScroll();
+  }
+
+  function handleTopbarHidingOnScroll() {
+    var header = $('.header');
+    var parent = $(window);
+    parent.on('scroll', function () {
+      var y = parent.scrollTop();
+      var up = header.hasClass('up');
+      if (up === true && y < 40) {
+        header.removeClass('up');
+        header.slideDown();
+      }
+      if (up === false && y > 40) {
+        header.addClass('up');
+        header.slideUp();
+      }
+    });
+  }
+
   function isTokenValid() {
     if (!window.localStorage) return false;
     jwt = window.localStorage['lscache-extended_jwt'] ? $.parseJSON(window.localStorage['lscache-extended_jwt']) : {};
@@ -50,6 +72,6 @@ $(document).ready(function () {
     }
   }
 
-  checkTokenAndUpdateProfile();
+  initialize();
 
 });
