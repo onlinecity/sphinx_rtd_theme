@@ -8,24 +8,7 @@ $(document).ready(function () {
 
   function initialize() {
     checkTokenAndUpdateProfile();
-    handleTopbarHidingOnScroll();
-  }
-
-  function handleTopbarHidingOnScroll() {
-    var header = $('.header');
-    var parent = $(window);
-    parent.on('scroll', function () {
-      var y = parent.scrollTop();
-      var up = header.hasClass('up');
-      if (up === true && y < 40) {
-        header.removeClass('up');
-        header.slideDown();
-      }
-      if (up === false && y > 40) {
-        header.addClass('up');
-        header.slideUp();
-      }
-    });
+    moveAnchorTarget();
   }
 
   function isTokenValid() {
@@ -34,6 +17,18 @@ $(document).ready(function () {
     me = window.localStorage['lscache-me'] ? $.parseJSON(window.localStorage['lscache-me']) : {};
     var unixTime = (Math.round((new Date()).getTime() / 1000));
     return me && me.name && jwt && parseInt(jwt.expires_at) > parseInt(unixTime);
+  }
+
+  function moveAnchorTarget() {
+    // Modifying the Sphinx output seems too difficult, so move the ID tags
+    // from the node carrying them to the headerlink
+    $('a.headerlink').each(function () {
+      var target = this.href.substr(this.href.indexOf('#')+1)
+      $('<a class="anchor" />').attr('id', target).insertAfter($(this))
+      $(this).parentsUntil('[id]').each(function() {
+        $(this.parentNode).removeAttr('id')
+      })
+    })
   }
 
   function checkTokenAndUpdateProfile() {
