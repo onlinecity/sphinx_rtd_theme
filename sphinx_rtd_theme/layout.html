@@ -93,7 +93,9 @@
     {# SIDE NAV, TOGGLES ON MOBILE #}
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
         <div class="wy-side-logo">
-            <img src="{{ pathto('_static/img/logo_white_landscape.svg', 1) }}" class="logo">
+            <a href="/docs/">
+              <img src="{{ pathto('_static/img/logo_white_landscape.svg', 1) }}" class="logo">
+            </a>
             {% if theme_display_version %}
             {%- set nav_version = version %}
             {% if READTHEDOCS and current_version %}

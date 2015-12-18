@@ -2663,7 +2663,7 @@ a .fa, a .wy-menu-vertical li span.toctree-expand, .wy-menu-vertical li a span.t
   height: 56px;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   .wy-tray-container {
     bottom: auto;
     top: 0;
@@ -3468,7 +3468,7 @@ input[type="radio"][disabled], input[type="checkbox"][disabled] {
     padding: 6px 0;
   }
 }
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   .tablet-hide {
     display: none;
   }
@@ -4530,7 +4530,7 @@ a:visited {
   border-bottom: 1px solid #262a32;
   padding-left: 20px;
 }
-.wy-side-logo > img {
+.wy-side-logo > a > img {
   height: 60px;
 }
 .wy-side-logo > div.version {
@@ -4800,7 +4800,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   background: #2593d2;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   body {
     padding: 0px;
   }
@@ -4831,7 +4831,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   .wy-side-logo .version {
     display: none;
   }
-  .wy-side-logo > img {
+  .wy-side-logo > a > img {
     float: left;
     height: 60px;
     width: 157px;
@@ -5008,7 +5008,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   text-align: center;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-width: 768px) {
   .rst-versions {
     width: 85%;
     display: none;
@@ -5100,6 +5100,12 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 }
 .rst-content h1:hover .headerlink, .rst-content h2:hover .headerlink, .rst-content .toctree-wrapper p.caption:hover .headerlink, .rst-content h3:hover .headerlink, .rst-content h4:hover .headerlink, .rst-content h5:hover .headerlink, .rst-content h6:hover .headerlink, .rst-content dl dt:hover .headerlink, .rst-content p.caption:hover .headerlink {
   display: inline-block;
+}
+.rst-content h1 .anchor, .rst-content h2 .anchor, .rst-content .toctree-wrapper p.caption .anchor, .rst-content h3 .anchor, .rst-content h4 .anchor, .rst-content h5 .anchor, .rst-content h6 .anchor, .rst-content dl dt .anchor, .rst-content p.caption .anchor {
+  display: inline-block;
+  visibility: hidden;
+  position: relative;
+  top: -100px;
 }
 .rst-content .sidebar {
   float: right;
