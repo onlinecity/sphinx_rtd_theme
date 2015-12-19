@@ -22,14 +22,12 @@ $(document).ready(function () {
 
   function moveAnchorTarget() {
     // Modifying the Sphinx output seems too difficult, so move the ID tags
-    // from the node carrying them to the headerlink
+    // from the node carrying them to new offset anchor target
     $('a.headerlink').each(function () {
-      var target = this.href.substr(this.href.indexOf('#')+1)
-      $('<a class="anchor" />').attr('id', target).insertAfter($(this))
-      $(this).parentsUntil('[id]').each(function() {
-        $(this.parentNode).removeAttr('id')
-      })
-    })
+      var target = this.href.substr(this.href.indexOf('#')+1);
+      $('<a class="anchor" />').attr('id', target).insertAfter($(this));
+      $(this).closest('[id]').removeAttr('id');
+    });
   }
 
   function initChatlio() {
