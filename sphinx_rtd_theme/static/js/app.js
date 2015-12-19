@@ -9,6 +9,7 @@ $(document).ready(function () {
   function initialize() {
     checkTokenAndUpdateProfile();
     moveAnchorTarget();
+    initChatlio();
   }
 
   function isTokenValid() {
@@ -29,6 +30,33 @@ $(document).ready(function () {
         $(this.parentNode).removeAttr('id')
       })
     })
+  }
+
+  function initChatlio() {
+    // Chatlio.com integration
+    document.addEventListener('chatlio.ready', function () {
+      window._chatlio.configure({
+        'onlineTitle': 'How can we help you?',
+        'offlineTitle': 'Contact Us',
+        'agentLabel': 'OnlineCity GatewayAPI Support',
+        'onlineMessagePlaceholder': 'Type message here...',
+        'offlineGreeting': 'Sorry we are away, but we would love to hear from you and chat soon!',
+        'offlineEmailPlaceholder': 'Email',
+        'offlineMessagePlaceholder': 'Your message here',
+        'offlineNamePlaceholder': 'Name (optional but helpful)',
+        'offlineSendButton': 'Send',
+        'offlineThankYouMessage': 'Thanks for your message. We will be in touch soon!',
+        'autoResponseMessage': 'Question? Just type it below and we are online and ready to answer.'
+      });
+    });
+    if (isTokenValid()) {
+      me = window.localStorage['lscache-me'] ? $.parseJSON(window.localStorage['lscache-me']) : {};
+      var userId = me.name.substring(0, me.name.indexOf(' ') + 2).replace(/ /g, '').toLowerCase();
+      window._chatlio.identify(userId, {
+        'Name': me.name,
+        'Email': me.email
+      });
+    }
   }
 
   function checkTokenAndUpdateProfile() {
