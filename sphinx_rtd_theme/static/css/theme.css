@@ -5038,6 +5038,13 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 .rst-content .section > img, .rst-content .section > a > img {
   margin-bottom: 24px;
 }
+.rst-content a.reference.external:after {
+  font-family: FontAwesome;
+  content: " ";
+  color: #b3b3b3;
+  vertical-align: super;
+  font-size: 60%;
+}
 .rst-content blockquote {
   margin-left: 24px;
   line-height: 24px;
