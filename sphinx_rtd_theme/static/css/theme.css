@@ -5108,7 +5108,7 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
 .rst-content h1:hover .headerlink, .rst-content h2:hover .headerlink, .rst-content .toctree-wrapper p.caption:hover .headerlink, .rst-content h3:hover .headerlink, .rst-content h4:hover .headerlink, .rst-content h5:hover .headerlink, .rst-content h6:hover .headerlink, .rst-content dl dt:hover .headerlink, .rst-content p.caption:hover .headerlink {
   display: inline-block;
 }
-.rst-content h1 .anchor, .rst-content h2 .anchor, .rst-content .toctree-wrapper p.caption .anchor, .rst-content h3 .anchor, .rst-content h4 .anchor, .rst-content h5 .anchor, .rst-content h6 .anchor, .rst-content dl dt .anchor, .rst-content p.caption .anchor {
+.rst-content h1 .anchor, .rst-content h2 .anchor, .rst-content .toctree-wrapper p.caption .anchor, .rst-content h3 .anchor, .rst-content h4 .anchor, .rst-content h5 .anchor, .rst-content h6 .anchor, .rst-content dl dt .anchor, .rst-content p.caption .anchor, .rst-content div.section .anchor {
   display: inline-block;
   visibility: hidden;
   position: relative;

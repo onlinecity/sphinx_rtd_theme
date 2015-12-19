@@ -28,6 +28,12 @@ $(document).ready(function () {
       $('<a class="anchor" />').attr('id', target).insertAfter($(this));
       $(this).closest('[id]').removeAttr('id');
     });
+    // Also fix inline links
+    $('span[id]').each(function () {
+      var target = $(this).attr('id')
+      $('<a class="anchor" />').attr('id', target).insertAfter($(this));
+      $(this).removeAttr('id');
+    });
   }
 
   function initChatlio() {
