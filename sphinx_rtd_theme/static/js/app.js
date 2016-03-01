@@ -24,7 +24,7 @@ $(document).ready(function () {
     // Modifying the Sphinx output seems too difficult, so move the ID tags
     // from the node carrying them to new offset anchor target
     $('a.headerlink').each(function () {
-      var target = this.href.substr(this.href.indexOf('#')+1);
+      var target = this.href.substr(this.href.indexOf('#') + 1);
       $('<a class="anchor" />').attr('id', target).insertAfter($(this));
       $(this).closest('[id]').removeAttr('id');
     });
@@ -86,7 +86,7 @@ $(document).ready(function () {
       headerEl.find('li.dashboard').removeClass('hidden');
       headerEl.find('li.login').addClass('hidden');
 
-      headerEl.find('.username-wrap a').text(me.name);
+      headerEl.find('.username-wrap').text(me.name);
       headerEl.find('.username-wrap').removeClass('hidden');
 
       headerEl.find('.thumbnail-wrap img').attr('src', me.avatar);
@@ -95,7 +95,30 @@ $(document).ready(function () {
       headerEl.find('.thumbnail-wrap').removeClass('hidden');
       headerEl.find('.thumbnail-wrap').fadeIn(500);
 
+      // profile dropdown
+      headerEl.find('#profile-dropdown-button').on('click', function () {
+        $('#profile-dropdown-menu').toggleClass('open');
+      });
+
       tokenTimer = setInterval(checkTokenAndUpdateProfile, 1000);
+
+      updateUserAccountRoleOnBody();
+    }
+  }
+
+  /**
+   * Update body with accountrole class based on account role from jwt (need-admin)
+   * Profile-dropdown menu is now identical to /app/
+   */
+  function updateUserAccountRoleOnBody() {
+    if (lscache.get('account_id') && lscache.get('extended_jwt')) {
+      var profile = window.jwt_decode(lscache.get('extended_jwt').access_token).profile;
+      var accounts = profile.accounts || [];
+      accounts.forEach(function (account) {
+        if (account.account.id === lscache.get('account_id')) {
+          $('body').addClass('accountrole-' + account.role);
+        }
+      });
     }
   }
 
