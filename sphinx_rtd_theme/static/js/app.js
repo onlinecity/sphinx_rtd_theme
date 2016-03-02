@@ -107,18 +107,12 @@ $(document).ready(function () {
   }
 
   /**
-   * Update body with accountrole class based on account role from jwt (need-admin)
+   * Update body with accountrole class from localStorage
    * Profile-dropdown menu is now identical to /app/
    */
   function updateUserAccountRoleOnBody() {
-    if (lscache.get('account_id') && lscache.get('extended_jwt')) {
-      var profile = window.jwt_decode(lscache.get('extended_jwt').access_token).profile;
-      var accounts = profile.accounts || [];
-      accounts.forEach(function (account) {
-        if (account.account.id === lscache.get('account_id')) {
-          $('body').addClass('accountrole-' + account.role);
-        }
-      });
+    if (lscache.get('account_id') && lscache.get('account_role')) {
+      $('body').addClass('accountrole-' + lscache.get('account_role'));
     }
   }
 
