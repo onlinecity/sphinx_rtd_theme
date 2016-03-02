@@ -111,9 +111,7 @@ $(document).ready(function () {
    * Profile-dropdown menu is now identical to /app/
    */
   function updateUserAccountRoleOnBody() {
-    if (lscache.get('account_id') && lscache.get('account_role')) {
-      $('body').addClass('accountrole-' + lscache.get('account_role'));
-    }
+    $('body').addClass('accountrole-' + (lscache.get('account_role') || 'viewer'));
   }
 
   initialize();
