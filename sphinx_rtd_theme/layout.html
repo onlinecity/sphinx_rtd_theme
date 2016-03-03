@@ -46,7 +46,11 @@
     <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css" />
     {% endfor %}
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/icons/_/icons.css" />
+    <link rel="stylesheet" href="{{ pathto('_static/gatewayapi/profile.css', 1) }}" />
+    <link rel="stylesheet" href="{{ pathto('_static/gatewayapi/roles.css', 1) }}" />
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
 
     {%- block linktags %}
     {%- if hasdoc('about') %}
@@ -208,6 +212,7 @@
 <script type="text/javascript" src="{{ pathto('_static/js/theme.js', 1) }}"></script>
 {% endif %}
 
+<script type="text/javascript" src="{{ pathto('_static/js/lscache.min.js', 1) }}"></script>
 <script type="text/javascript" src="{{ pathto('_static/js/app.js', 1) }}"></script>
 
 {# STICKY NAVIGATION #}

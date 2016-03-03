@@ -4720,6 +4720,9 @@ footer span.commit code, footer span.commit .rst-content tt, .rst-content footer
   line-height: 0px;
   margin-top: 14px;
 }
+.header .profile-wrap > .thumbnail-wrap a img {
+  height: 28px;
+}
 .header .profile-wrap .username-wrap {
   display: inline-block;
   float: left;
