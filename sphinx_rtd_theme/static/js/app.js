@@ -55,7 +55,12 @@ $(document).ready(function () {
     });
     if (isTokenValid()) {
       me = window.localStorage['lscache-me'] ? $.parseJSON(window.localStorage['lscache-me']) : {};
-      var userId = me.name.substring(0, me.name.indexOf(' ') + 2).replace(/ /g, '').toLowerCase();
+      var userId;
+      if (me.name && me.name.indexOf(' ') !== -1) {
+        userId = me.name.substring(0, me.name.indexOf(' ') + 2).replace(/ /g, '').toLowerCase();
+      } else if (me.email) {
+        userId = me.email.substring(0, me.email.indexOf('@')).toLowerCase().replace(/[^a-z0-9]+/g, '');
+      }
       window._chatlio.identify(userId, {
         'Name': me.name,
         'Email': me.email
