@@ -13,9 +13,8 @@ $(document).ready(function () {
   }
 
   function isTokenValid() {
-    if (!window.localStorage) return false;
-    jwt = window.localStorage['lscache-extended_jwt'] ? $.parseJSON(window.localStorage['lscache-extended_jwt']) : {};
-    me = window.localStorage['lscache-me'] ? $.parseJSON(window.localStorage['lscache-me']) : {};
+    jwt = lscache.get('extended_jwt');
+    me = lscache.get('me') || {};
     var unixTime = (Math.round((new Date()).getTime() / 1000));
     return me && me.name && jwt && parseInt(jwt.expires_at) > parseInt(unixTime);
   }
@@ -36,36 +35,48 @@ $(document).ready(function () {
     });
   }
 
+  /**
+   * Chatlio.com integration
+   */
   function initChatlio() {
-    // Chatlio.com integration
     document.addEventListener('chatlio.ready', function () {
-      window._chatlio.configure({
+      if (lscache.get('me')) {
+        var me = lscache.get('me');
+        var userId;
+        if (me.name && me.name.indexOf(' ') !== -1) {
+          userId = me.name.substring(0, me.name.indexOf(' ') + 2).replace(/ /g, '').toLowerCase();
+        } else if (me.email) {
+          userId = me.email.substring(0, me.email.indexOf('@')).toLowerCase().replace(/[^a-z0-9]+/g, '');
+        }
+        var data = {
+          name: me.name,
+          email: me.email,
+          accountId: lscache.get('account_id')
+        };
+        // if profile has signed up using idoc service take mobilenumber from name and remove name and email as they serve no purpose.
+        if (data.name.indexOf('@id.oc.dk') !== -1) {
+          data.mobile = data.name.substring(0, data.name.indexOf('@'));
+          delete data.name;
+        }
+        if (data.email.indexOf('@id.oc.dk') !== -1) {
+          delete data.email;
+        }
+        window._chatlio.identify(userId, data);
+      }
+      _chatlio.configure({
         'onlineTitle': 'How can we help you?',
         'offlineTitle': 'Contact Us',
         'agentLabel': 'OnlineCity GatewayAPI Support',
         'onlineMessagePlaceholder': 'Type message here...',
         'offlineGreeting': 'Sorry we are away, but we would love to hear from you and chat soon!',
         'offlineEmailPlaceholder': 'Email',
-        'offlineMessagePlaceholder': 'Your message here',
-        'offlineNamePlaceholder': 'Name (optional but helpful)',
+        'offlineMessagePlaceholder': 'Type message here...',
+        'offlineNamePlaceholder': 'Name',
         'offlineSendButton': 'Send',
         'offlineThankYouMessage': 'Thanks for your message. We will be in touch soon!',
         'autoResponseMessage': 'Question? Just type it below and we are online and ready to answer.'
       });
     });
-    if (isTokenValid()) {
-      me = window.localStorage['lscache-me'] ? $.parseJSON(window.localStorage['lscache-me']) : {};
-      var userId;
-      if (me.name && me.name.indexOf(' ') !== -1) {
-        userId = me.name.substring(0, me.name.indexOf(' ') + 2).replace(/ /g, '').toLowerCase();
-      } else if (me.email) {
-        userId = me.email.substring(0, me.email.indexOf('@')).toLowerCase().replace(/[^a-z0-9]+/g, '');
-      }
-      window._chatlio.identify(userId, {
-        'Name': me.name,
-        'Email': me.email
-      });
-    }
   }
 
   function checkTokenAndUpdateProfile() {
